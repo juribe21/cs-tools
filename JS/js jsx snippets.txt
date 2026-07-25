@@ -1,0 +1,11 @@
+js jsx snippets 
+
+how to set name of the file on js jsx snippets vs code
+
+1- shift + ctrl + p
+2- Select > Configure snippets
+3- Select
+	- JavaScriptJava
+	- TypeScriptReact
+
+npm create vite@latest my-react-app -- --template react

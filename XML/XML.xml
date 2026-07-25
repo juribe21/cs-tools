@@ -1,0 +1,183 @@
+<czvOptic>
+	<header>
+		<cultureId/>
+		<customersOrderId>3408491569</customersOrderId>
+		<distributorsOrderId>8211547651</distributorsOrderId>
+		<timeStamps>
+			<dateTime step="CREATE">2024-12-02T07:16:00.000+01:00</dateTime>
+		</timeStamps>
+		<orderParties role="ORIGINATOR">
+			<id memberShipID="1">0000629146</id>
+			<name>Carl Zeiss Vision International</name>
+			<address>
+				<addressLine>Turnstr. 27</addressLine>
+				<city>Aalen</city>
+				<zip>73430</zip>
+				<countryCode>DE</countryCode>
+			</address>
+		</orderParties>
+		<orderParties role="SHIPTO">
+			<id memberShipID="1">0001044983</id>
+			<name>transmed Transport GmbH</name>
+			<address>
+				<addressLine>Lippestr. 9b</addressLine>
+				<city>Hanau</city>
+				<zip>63452</zip>
+				<countryCode>DE</countryCode>
+			</address>
+			<LZone>0000000001</LZone>
+		</orderParties>
+		<orderParties role="SHOPNR">
+			<id memberShipID="1">0000107492</id>
+			<name>Fielmann AG</name>
+			<address>
+				<addressLine>An den Flugzeughallen 3</addressLine>
+				<city>Rathenow</city>
+				<zip>14712</zip>
+				<countryCode>DE</countryCode>
+			</address>
+			<LZone>91990000 2</LZone>
+		</orderParties>
+		<software typeOf="ORIGINATOR">
+			<name>CZVCC2MX</name>
+			<version/>
+		</software>
+		<productCatalog>
+			<name/>
+			<version/>
+			<release/>
+		</productCatalog>
+		<portalOrderId>3408491569</portalOrderId>
+		<layout>
+			<layoutCode>08</layoutCode>
+			<languageID>DE</languageID>
+		</layout>
+		<czvOrderID>161299571</czvOrderID>
+		<globalOrderIdP0>115836631</globalOrderIdP0>
+	</header>
+	<items>
+		<item orderType="Productive" orderPriority="NORMAL">
+			<parties role="ORIGINATOR">
+				<id memberShipID="1">0000629146</id>
+				<name>Carl Zeiss Vision International</name>
+				<address>
+					<addressLine>Turnstr. 27</addressLine>
+					<city>Aalen</city>
+					<zip>73430</zip>
+					<countryCode>DE</countryCode>
+				</address>
+			</parties>
+			<parties role="SHIPTO">
+				<id memberShipID="1">0001044983</id>
+				<name>transmed Transport GmbH</name>
+				<address>
+					<addressLine>Lippestr. 9b</addressLine>
+					<city>Hanau</city>
+					<zip>63452</zip>
+					<countryCode>DE</countryCode>
+				</address>
+				<LZone>0000000001</LZone>
+			</parties>
+			<parties role="SHOPNR">
+				<id memberShipID="1">0000107492</id>
+				<name>Fielmann AG</name>
+				<address>
+					<addressLine>An den Flugzeughallen 3</addressLine>
+					<city>Rathenow</city>
+					<zip>14712</zip>
+					<countryCode>DE</countryCode>
+				</address>
+				<LZone>91990000 2</LZone>
+			</parties>
+			<referenceNo>2969443</referenceNo>
+			<deliveryMethod deliveryType=""/>
+			<manufacturer/>
+			<orderNumberSubSystem>834926</orderNumberSubSystem>
+			<pair>
+				<patient>
+					<id memberShipID="1">0000107492</id>
+				</patient>
+				<lens quantity="1" side="RIGHT" signProduction="R" purchaseOrderPosition="000110" globalOrderItem="000110" barCode="1010259296944334">
+					<lensCode productLineID="1">Z____N6956</lensCode>
+					<commercialCode>N6956</commercialCode>
+					<ediCode>N6956</ediCode>
+					<rxData>
+						<sphere>-1.25</sphere>
+						<cylinder>
+							<power>1.75</power>
+							<base>10.0</base>
+						</cylinder>
+					</rxData>
+					<coating coatingType="ANTIREFLEX" standard="false">
+						<commercialCode>HM</commercialCode>
+					</coating>
+					<coating coatingType="HARD" standard="false">
+						<commercialCode>HC</commercialCode>
+					</coating>
+					<centration>
+						<monocularCentrationDistance reference="FAR">33.0</monocularCentrationDistance>
+						<height reference="FAR" referenceHeight="OVERBOX">28.5</height>
+						<backVertexDistance>15.0</backVertexDistance>
+					</centration>
+					<geometry>
+						<diameter elliptical="false">
+							<physical>70</physical>
+							<optical>70</optical>
+							<encoded>70</encoded>
+							<standard>70</standard>
+						</diameter>
+					</geometry>
+				</lens>
+				<lens quantity="1" side="LEFT" signProduction="R" purchaseOrderPosition="000120" globalOrderItem="000120" barCode="1010259296944334">
+					<lensCode productLineID="1">Z____N6956</lensCode>
+					<commercialCode>N6956</commercialCode>
+					<ediCode>N6956</ediCode>
+					<rxData>
+						<sphere>0.5</sphere>
+						<cylinder>
+							<power>1.25</power>
+							<base>6.0</base>
+						</cylinder>
+					</rxData>
+					<coating coatingType="HARD" standard="false">
+						<commercialCode>HC</commercialCode>
+					</coating>
+					<coating coatingType="ANTIREFLEX" standard="false">
+						<commercialCode>HM</commercialCode>
+					</coating>
+					<centration>
+						<monocularCentrationDistance reference="FAR">33.0</monocularCentrationDistance>
+						<height reference="FAR" referenceHeight="OVERBOX">28.5</height>
+						<backVertexDistance>15.0</backVertexDistance>
+					</centration>
+					<geometry>
+						<diameter elliptical="false">
+							<physical>70</physical>
+							<optical>70</optical>
+							<encoded>70</encoded>
+							<standard>70</standard>
+						</diameter>
+					</geometry>
+				</lens>
+				<frame quantity="0">
+					<material>METAL</material>
+					<brand>1</brand>
+					<boxWidth>54.3</boxWidth>
+					<boxHeight>45.1</boxHeight>
+					<distanceBetweenLenses>18.3</distanceBetweenLenses>
+					<pantoscopicAngle>7.7</pantoscopicAngle>
+				</frame>
+			</pair>
+			<information>
+				<textBlock posType="UNDEFINED" textKey="Z359">
+					<line nr="01">0631487313</line>
+				</textBlock>
+				<inkMarking>false</inkMarking>
+				<route>
+					<code>MXDE01</code>
+					<description>Optical MXRX to DE</description>
+				</route>
+			</information>
+		</item>
+	</items>
+</czvOptic>

@@ -1,0 +1,3 @@
+/* RESEED Identity */
+
+DBCC CHECKIDENT ('mODULO', RESEED, 5)

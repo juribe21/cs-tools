@@ -1,0 +1,9 @@
+EF Commands
+-- Migrations
+dotnet ef migrations add IdentityUser
+
+-- Update
+dotnet ef database update
+
+-- Drop DB
+dotnet ef database drop

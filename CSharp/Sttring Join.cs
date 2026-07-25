@@ -1,0 +1,1 @@
+string selectedFields = String.Join(",", SelectFields);
