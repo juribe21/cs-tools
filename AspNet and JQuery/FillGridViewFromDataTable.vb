@@ -1,7 +1,32 @@
+'****************************************************************************************************
+' QueryStringExample
+QueryString = "
+                Select * From RxBillingBundlesMaster
+                Where (LensDesign = '" & criteria & "' or @criteria Is Null)
+                OR (LensMaterial = '" & criteria & "' or @criteria is Null)
+              "
+
+  QueryString = "
+                  Select * From RxBillingBundlesMaster
+                  Where (LensDesign = '" & criteria & "' or '" & criteria & "' Is Null)
+               OR (LensMaterial = '" & criteria & "' or '" & criteria & "' is Null)
+               "
+
+ QueryString = "
+                 Select * From RxBillingBundlesMaster
+                 Where (LensDesign = '" & criteria & "' or '" & criteria & "' Is Null)
+	                OR (LensMaterial = '" & criteria & "' or '" & criteria & "' is Null)
+                 OR ('" & criteria & "' = '' or '" & criteria & "' = 'ALL')
+               "
+' ****************************************************************************************************
+
 
 ' **************************************************
 ' ********** Fill GridView from DataTable **********
 ' **************************************************
+
+Dim SqlConn As New SqlConnection(ConfigurationManager.ConnectionStrings("RxPortal").ConnectionString)
+Dim SqlCmd As SqlCommand = New SqlCommand()
 
     Protected Sub CustomerCatalogProductsData(ByVal ProductCatalog As String, ByVal RxBillingMaterial As String, ByVal LensDesign As String, ByVal LensMaterial As String)
 
