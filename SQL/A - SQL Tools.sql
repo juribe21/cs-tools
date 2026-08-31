@@ -199,7 +199,7 @@ ORDER BY jobs.Name,js.step_id
 
 -- Search Table
 SELECT * FROM INFORMATION_SCHEMA.TABLES 
-WHERE TABLE_NAME LIKE '%mirr%'
+WHERE TABLE_NAME LIKE '%sour%'
 
 /* ******* Find table in Stored Procedure ******** */
 -- Find table in Stored Procedure
@@ -224,15 +224,16 @@ ORDER BY table_name, schema_name;
 SELECT OBJECT_NAME(OBJECT_ID),
 definition
 FROM sys.sql_modules
-WHERE definition LIKE '%' + 'SchneiderSurfaceLeft' + '%'
+WHERE definition LIKE '%' + 'sour' + '%'
 GO
 
 -- Search Column in all Tables - INFORMATION_SCHEMA.COLUMNS
 SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH AS LENGTH
 FROM INFORMATION_SCHEMA.COLUMNS 
 WHERE 
-	COLUMN_NAME LIKE '%RxFitPatientDOB%' 
-	AND TABLE_NAME LIKE '%DigitalVisionOrderDetail%'
+	COLUMN_NAME LIKE '%sour%' 
+	--AND TABLE_NAME LIKE '%DigitalVisionOrderDetail%'
+ORDER BY TABLE_NAME, COLUMN_NAME
 
 -- Search Column in all Tables
 SELECT DISTINCT
