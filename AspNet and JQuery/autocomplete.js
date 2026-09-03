@@ -1,5 +1,5 @@
 /* Autocomplete */
-
+var availableTags = "";
 var CustomerAccounts = ['<%=String.Join("', '", ArrayAccountNumber) %>'];
 availableTags = CustomerAccounts;
 
@@ -25,3 +25,45 @@ $("#inputCustomerName").autocomplete({
 })
 
 $("#inputCustomerName").focus();
+
+
+
+/* ***** Autocomplete with ASP Control ***** */
+
+var availableSapCompanies = "";
+availableSapCompanies = ['<%= string.Join("', '", ArraySapCompaniesCodes) %>']; 
+OR
+availableTags = availableSapCompanies;
+
+function FillTextValues() {
+    // Reset to values to empty
+    $("#<%= txtAccountNumber.ClientID %>").val('');
+
+    FillTxtAccountNumber();
+    CreateControlsEventsAccounts(); //  function ???
+}
+
+function FillTxtAccountNumber() {
+    $("#<%= txtAccountNumber.ClientID %>").autocomplete({
+        source: function (request, response) {
+            var results = $.ui.autocomplete.filter(availableSapCompanies, request.term);
+            response(results.slice(0, 25));
+        },
+        select: function (event, ui) {
+            var terms = split(this.value);                  
+            terms.pop();                  
+
+            terms.push((ui.item.value).replace("&", "%26"));
+
+            // add placeholder to get the comma-and-space at the end
+            this.value = (ui.item.value).replace("&", "%26")                   
+            return false;
+        }
+    })
+}
+
+function CreateControlsEventsAccounts() {
+    $("#<%= txtAccountNumber.ClientID %>").on("click", function () {
+        $(this).select();
+    });
+}
