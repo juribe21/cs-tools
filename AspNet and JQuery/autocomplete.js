@@ -28,7 +28,7 @@ $("#inputCustomerName").focus();
 
 
 
-/* ***** Autocomplete with ASP Control ***** */
+/* ***** Autocomplete with ASP Control ***** */ txtFrameName
 
 var availableSapCompanies = "";
 availableSapCompanies = ['<%= string.Join("', '", ArraySapCompaniesCodes) %>']; 
@@ -43,7 +43,7 @@ function FillTextValues() {
     CreateControlsEventsAccounts(); //  function ???
 }
 
-function FillTxtAccountNumber() {
+function FilltxtFrameNames() {
     $("#<%= txtAccountNumber.ClientID %>").autocomplete({
         source: function (request, response) {
             var results = $.ui.autocomplete.filter(availableSapCompanies, request.term);
