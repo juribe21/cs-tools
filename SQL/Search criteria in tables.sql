@@ -58,3 +58,44 @@ SELECT TableName, ColumnName, MatchCount
 FROM #Results
 WHERE MatchCount > 0
 ORDER BY TableName, ColumnName;
+
+
+
+/* ******************************************************************* */
+/* *********************** SEARCH STRING VALUE *********************** */
+/* ******************************************************************* */
+
+DECLARE @SearchStr NVARCHAR(100) = 'fsv' -- <-- Change value here
+DECLARE @Results TABLE (TableName NVARCHAR(256), ColumnName NVARCHAR(256), ActualValue NVARCHAR(MAX))
+
+DECLARE @TableName NVARCHAR(256), @ColumnName NVARCHAR(256), @Sql NVARCHAR(MAX)
+
+DECLARE ColumnCursor CURSOR FOR
+SELECT QUOTENAME(t.name), QUOTENAME(c.name)
+FROM sys.tables t
+INNER JOIN sys.columns c ON t.object_id = c.object_id
+INNER JOIN sys.types y ON c.user_type_id = y.user_type_id
+WHERE y.name IN ('varchar', 'char', 'nvarchar', 'nchar', 'text', 'ntext') -- Text datatypes
+  AND t.is_ms_shipped = 0
+
+OPEN ColumnCursor
+FETCH NEXT FROM ColumnCursor INTO @TableName, @ColumnName
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    -- Construct dynamic SQL to check if the value exists in this column
+    SET @Sql = 'SELECT ''' + @TableName + ''', ''' + @ColumnName + ''', CAST(' + @ColumnName + ' AS NVARCHAR(MAX)) ' +
+               'FROM ' + @TableName + ' WHERE ' + @ColumnName + ' LIKE ''%' + @SearchStr + '%'''
+    
+    INSERT INTO @Results
+    EXEC sp_executesql @Sql
+
+    FETCH NEXT FROM ColumnCursor INTO @TableName, @ColumnName
+END
+
+CLOSE ColumnCursor
+DEALLOCATE ColumnCursor
+
+-- Display all occurrences
+SELECT * FROM @Results
+
