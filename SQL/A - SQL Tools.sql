@@ -178,8 +178,26 @@ GO
 
 /* ************************************************************************************************************* */
 
+-- SEARCH TABLES INSIDE SP's
+SELECT 
+    s.name AS SchemaName,
+    o.name AS StoredProcedureName,
+    o.type_desc AS ObjectType
+FROM 
+    sys.sql_modules AS m
+INNER JOIN 
+    sys.objects AS o ON m.object_id = o.object_id
+INNER JOIN 
+    sys.schemas AS s ON o.schema_id = s.schema_id
+WHERE 
+    m.definition LIKE '%TempLabJobFlowSummary%' -- Replace with your table name
+    AND o.type = 'P'							-- Filters strictly for Stored Procedures
+ORDER BY 
+    SchemaName, 
+    StoredProcedureName;
 
--- Search JOBS
+
+-- SEARCH JOBS
 Select j.name JobName, s.step_name StepName
 From msdb.dbo.sysjobsteps s
 	join msdb.dbo.sysjobs j on j.job_id=s.job_id
