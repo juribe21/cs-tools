@@ -28,6 +28,7 @@ IF EXISTS(SELECT TOP 1 1  FROM [dbo].[LoginProgram]
 	WHERE 	[Program_Id] = 0000)
 BEGIN
 	-- CODE HERE
+	PRINT 'CODE HERE'
 END
 GO
 
@@ -65,8 +66,8 @@ IF NOT EXISTS ( SELECT TOP 1 1  FROM INFORMATION_SCHEMA.COLUMNS
 				AND [COLUMN_NAME] = 'Retired_Flag')
 BEGIN
 	ALTER TABLE [dbo].[BankAccount]
-	ADD [Retired_Flag] [bit]  NOT NULL CONSTRAINT DF_Retired_Flag DEFAULT 0 WITH VALUES,
-	ADD [ExchangeRate] [DECIMAL] (15, 10) NOT NULL CONSTRAINT DF_BankDeposit_ExchangeRate DEFAULT (0.00)
+	ADD [Retired_Flag] [bit]  NOT NULL CONSTRAINT DF_Retired_Flag DEFAULT 0 WITH VALUES
+	-- ADD [ExchangeRate] [DECIMAL] (8,4) NOT NULL CONSTRAINT DF_BankDeposit_ExchangeRate DEFAULT (0.00)
 END
 GO
 
@@ -185,16 +186,11 @@ SELECT
     o.type_desc AS ObjectType
 FROM 
     sys.sql_modules AS m
-INNER JOIN 
-    sys.objects AS o ON m.object_id = o.object_id
-INNER JOIN 
-    sys.schemas AS s ON o.schema_id = s.schema_id
-WHERE 
-    m.definition LIKE '%TempLabJobFlowSummary%' -- Replace with your table name
-    AND o.type = 'P'							-- Filters strictly for Stored Procedures
-ORDER BY 
-    SchemaName, 
-    StoredProcedureName;
+		INNER JOIN sys.objects AS o ON m.object_id = o.object_id
+		INNER JOIN sys.schemas AS s ON o.schema_id = s.schema_id
+	WHERE m.definition LIKE '%TempLabJobFlowSummary%' 	-- Replace with your table name
+      AND o.type = 'P'									-- Filters strictly for Stored Procedures
+ORDER BY SchemaName, StoredProcedureName;
 
 
 -- SEARCH JOBS
